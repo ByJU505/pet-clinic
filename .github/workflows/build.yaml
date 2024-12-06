@@ -3,6 +3,7 @@ on: [ push ]
 env:
 #### An dieser Stelle müssen eure persönlichen Umgebungsvariablen eingetragen werden
   # Tipp: Die Token/der API-Key werden als Secrets in den Repository-Settings eingetragen und hier referenziert.
+
   GITHUB_ACCESSTOKEN: ${{ secrets.SECRET_ACCES_TOKEN }}
 jobs:
   compile:
