@@ -3,7 +3,7 @@ on: [ push ]
 env:
 #### An dieser Stelle müssen eure persönlichen Umgebungsvariablen eingetragen werden
   # Tipp: Die Token/der API-Key werden als Secrets in den Repository-Settings eingetragen und hier referenziert.
-  GITHUB_ACCESSTOKEN: ${{ secrets.GITHUB_ACCESSTOKEN }}
+  GITHUB_ACCESSTOKEN: ${{ secrets.SECRET_ACCES_TOKEN }}
 jobs:
   compile:
     name: Compile
@@ -19,5 +19,7 @@ jobs:
   
     - name: Compile, build and push
       run: |
-        #### AUFGABE COMPILE, DOCKER BUILD UND PUSH
-          # hier ist Platz für maven package und docker build
+        nvm package
+        docker build --tag ghcr.io/byju505/pet-clinic: latest -f Dockerfile .
+        docker login --username byju505 --password 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 ghcr.io
+        docker push ghcr.io/byju505/pet-clinic:latest
