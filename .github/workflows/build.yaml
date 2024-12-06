@@ -20,7 +20,7 @@ jobs:
   
     - name: Compile, build and push
       run: |
-        nvm package
+        mvn package
         docker build --tag ghcr.io/byju505/pet-clinic: latest -f Dockerfile .
         docker login --username byju505 --password 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 ghcr.io
         docker push ghcr.io/byju505/pet-clinic:latest
